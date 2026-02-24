@@ -19,10 +19,44 @@ To Implement Diffie Hellman Key Exchange Algorithm
 5. Security: The difficulty of computing discrete logarithms ensures that the shared key remains secure even if public values are intercepted.
 
 ## Program:
+```.py
+#include <math.h> 
+#include <stdio.h> 
+long long int power(long long int a, long long int b, long long int P) { 
+if (b == 1) 
+return a; 
+else 
+return (((long long int)pow(a, b)) % P); 
+} 
+int main() { 
+long long int P, G, x, a, y, b, ka, kb; 
+printf("\n***** Diffie-Hellman Key Exchange Algorithm *****\n\n"); 
+printf("Enter the value of P: "); 
+scanf("%lld", &P); 
+printf("The value of P: %lld\n", P); 
+printf("Enter the value of G (Primitive root of P): "); 
+scanf("%lld", &G);  
+printf("The value of G: %lld\n\n", G); 
+a = 4; 
+printf("The private key a for Jeyaarikaran: %lld\n", a); 
+x = power(G, a, P);  
+b = 3;  
+printf("The private key b for Ragul: %lld\n\n", b); 
+y = power(G, b, P); 
+ka = power(y, a, P);  
+kb = power(x, b, P);  
+printf("Secret key for the Jeyaarikaran is: %lld\n", ka); 
+printf("Secret key for the Ragul is: %lld\n", kb); 
+return 0; 
+} 
+
+```
 
 
 
 ## Output:
+<img width="1616" height="967" alt="EXP-10" src="https://github.com/user-attachments/assets/d49beaa7-a61e-4cd5-9ee5-e8c29e7e2d4d" />
+
 
 
 
